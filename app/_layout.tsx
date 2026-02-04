@@ -3,10 +3,14 @@ import React from "react";
 import { Text } from "react-native";
 
 export default function RootLayout() {
-  // TODO: Create a bottom nav bar with Home, Shorts, Create (just a plus symbol), Subscriptions, and Profile (You)
-
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: "black",
+        tabBarInactiveTintColor: "gray",
+      }}
+    >
       <Tabs.Screen name="index" options={{ title: "Home" }} />
       <Tabs.Screen name="shorts" options={{ title: "Shorts" }} />
       <Tabs.Screen
@@ -18,6 +22,12 @@ export default function RootLayout() {
       />
       <Tabs.Screen name="subscriptions" options={{ title: "Subscriptions" }} />
       <Tabs.Screen name="profile" options={{ title: "You" }} />
+      <Tabs.Screen
+        name="channel/[id]"
+        options={{
+          href: null, // hide from tab bar
+        }}
+      />
     </Tabs>
   );
 }
