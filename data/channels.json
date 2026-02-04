@@ -6,6 +6,20 @@
       "subscriberCount": "1.5M",
       "profileImage": "https://picsum.photos/seed/user1/100/100",
       "description": "Latest reviews on tech gadgets."
+    },
+    {
+      "id": "c2",
+      "name": "Code Academy",
+      "subscriberCount": "2M",
+      "profileImage": "https://picsum.photos/seed/user2/100/100",
+      "description": "Learn to code with us."
+    },
+    {
+      "id": "c3",
+      "name": "Design Hub",
+      "subscriberCount": "750K",
+      "profileImage": "https://picsum.photos/seed/user3/100/100",
+      "description": "UI/UX design tutorials and tips."
     }
   ]
 }

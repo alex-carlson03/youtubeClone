@@ -1,13 +1,11 @@
 import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import VideoCard from "../components/videoCard";
-import videoData from "../data/videos.json";
+import videoData from "../data/videos.json"; // importing video data
 
 const index = () => {
-  // get json data for videos
-
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={videoData.videos}
         keyExtractor={(item) => item.id}
@@ -27,4 +25,9 @@ const index = () => {
 
 export default index;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
+});
