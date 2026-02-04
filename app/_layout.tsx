@@ -1,24 +1,29 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+import { Tabs } from "expo-router";
+import React from "react";
+import { Text } from "react-native";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  // TODO: Create a bottom nav bar with Home, Shorts, Create (just a plus symbol), Subscriptions, and Profile (You)
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <Tabs>
+      <Tabs.Screen name="index" options={{ title: "Home" }} />
+      <Tabs.Screen name="shorts" options={{ title: "Shorts" }} />
+      <Tabs.Screen
+        name="create"
+        options={{
+          title: "",
+          tabBarIcon: () => <Text style={styles.createIcon}>+</Text>,
+        }}
+      />
+      <Tabs.Screen name="subscriptions" options={{ title: "Subscriptions" }} />
+      <Tabs.Screen name="profile" options={{ title: "You" }} />
+    </Tabs>
   );
 }
+
+const styles = {
+  createIcon: {
+    fontSize: 30,
+  },
+};

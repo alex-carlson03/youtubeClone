@@ -1,0 +1,36 @@
+{
+  "videos": [
+    {
+      "id": "v1",
+      "channelId": "c1",
+      "title": "Introduction to React Native",
+      "views": "1.2M",
+      "uploaded": "2 weeks ago",
+      "thumbnail": "https://picsum.photos/seed/video1/400/225"
+    },
+    {
+      "id": "v2",
+      "channelId": "c2",
+      "title": "Advanced JavaScript Concepts",
+      "views": "850K",
+      "uploaded": "1 month ago",
+      "thumbnail": "https://picsum.photos/seed/video2/400/225"
+    },
+    {
+      "id": "v3",
+      "channelId": "c3",
+      "title": "UI/UX Design Principles",
+      "views": "500K",
+      "uploaded": "3 weeks ago",
+      "thumbnail": "https://picsum.photos/seed/video3/400/225"
+    },
+    {
+      "id": "v4",
+      "channelId": "c1",
+      "title": "State Management in React",
+      "views": "1M",
+      "uploaded": "5 days ago",
+      "thumbnail": "https://picsum.photos/seed/video4/400/225"
+    }
+  ]
+}
