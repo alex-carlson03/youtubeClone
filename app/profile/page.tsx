@@ -1,32 +1,51 @@
-import React from "react";
-import { Ionicons, MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
-import { StyleSheet, Text, View,ScrollView, Image, TouchableOpacity, FlatList} from "react-native";
-import ProfileHeader from "@/components/profileHeader";
 import HorizontalVideoCard from "@/components/horizontalVideoCard";
+import ProfileHeader from "@/components/profileHeader";
 import videoData from "@/data/videos.json";
+import {
+  Ionicons,
+  MaterialCommunityIcons,
+  MaterialIcons,
+} from "@expo/vector-icons";
+import { useRouter } from "expo-router";
+import React from "react";
+import {
+  FlatList,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 const profile = () => {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       <ProfileHeader />
       <ScrollView>
-          {/* Profile Info */}
+        {/* Profile Info */}
         <View style={styles.profileInfo}>
           <Image
             source={{ uri: "https://picsum.photos/seed/user1/100/100" }}
-            style={styles.profileImage}/>
-            <Text style={styles.userName}>Joey Joester</Text>
-            <Text style={styles.userEmail}>joey.joester@example.com</Text>
+            style={styles.profileImage}
+          />
+          <Text style={styles.userName}>Joey Joester</Text>
+          <Text style={styles.userEmail}>joey.joester@example.com</Text>
         </View>
 
         {/* Action Buttons */}
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.actionButtonRow}>
-          
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={styles.actionButtonRow}
+        >
           <TouchableOpacity style={styles.button}>
             <MaterialIcons name="switch-account" size={20} color="black" />
             <Text style={styles.actionButtonText}>Switch account</Text>
           </TouchableOpacity>
-                    
+
           <TouchableOpacity style={styles.button}>
             <Ionicons name="logo-google" size={20} color="black" />
             <Text style={styles.actionButtonText}>Google Account</Text>
@@ -36,52 +55,62 @@ const profile = () => {
             <MaterialIcons name="tv" size={20} color="black" />
             <Text style={styles.actionButtonText}>Turn on incognito</Text>
           </TouchableOpacity>
-
         </ScrollView>
 
         {/* History Section */}
         <View style={styles.sectionHeader}>
-        <Text style={styles.sectionHeaderText}>History</Text>
-        <TouchableOpacity style={styles.sectionHeaderButton}>
-          <Text style={styles.actionButtonText}>View all</Text>
-        </TouchableOpacity>
+          <Text style={styles.sectionHeaderText}>History</Text>
+          <TouchableOpacity style={styles.sectionHeaderButton}>
+            <Text style={styles.actionButtonText}>View all</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.historySection}>
-          <FlatList horizontal style={styles.vidHistoryRow} showsHorizontalScrollIndicator={false}
-              data={videoData.videos}
-              keyExtractor={(item) => item.id}
-              renderItem={({ item }) => (
-                <HorizontalVideoCard
-                  title={item.title}
-                  thumbnailUrl={item.thumbnail}
-                  channelId={item.channelId}
-                />
-              )}
+          <FlatList
+            horizontal
+            style={styles.vidHistoryRow}
+            showsHorizontalScrollIndicator={false}
+            data={videoData.videos}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <HorizontalVideoCard
+                title={item.title}
+                thumbnailUrl={item.thumbnail}
+                channelId={item.channelId}
+              />
+            )}
           />
         </View>
-        
+
         {/*Playlist section-Added the same section as history because they are identical with scrollability.*/}
         <View style={styles.sectionHeader}>
-        <Text style={styles.sectionHeaderText}>Playlists</Text>
-        <TouchableOpacity style={styles.sectionHeaderButton}>
-          <Text style={styles.actionButtonText}>View all</Text>
-        </TouchableOpacity>
+          <Text style={styles.sectionHeaderText}>Playlists</Text>
+          <TouchableOpacity
+            style={styles.sectionHeaderButton}
+            onPress={() => {
+              router.push("/profile/playlists");
+            }}
+          >
+            <Text style={styles.actionButtonText}>View all</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.historySection}>
-          <FlatList horizontal style={styles.vidHistoryRow} showsHorizontalScrollIndicator={false}
-              data={videoData.videos}
-              keyExtractor={(item) => item.id}
-              renderItem={({ item }) => (
-                <HorizontalVideoCard
-                  title={item.title}
-                  thumbnailUrl={item.thumbnail}
-                  channelId={item.channelId}
-                />
-              )}
+          <FlatList
+            horizontal
+            style={styles.vidHistoryRow}
+            showsHorizontalScrollIndicator={false}
+            data={videoData.videos}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <HorizontalVideoCard
+                title={item.title}
+                thumbnailUrl={item.thumbnail}
+                channelId={item.channelId}
+              />
+            )}
           />
-        </View> 
+        </View>
 
-      {/* Menu Items */}
+        {/* Menu Items */}
         <View style={styles.menuSection}>
           <TouchableOpacity style={styles.menuItem}>
             <Ionicons name="play-circle-outline" size={24} color="black" />
@@ -91,11 +120,20 @@ const profile = () => {
           <TouchableOpacity style={styles.menuItem}>
             <MaterialIcons name="file-download" size={24} color="black" />
             <Text style={styles.menuItemText}>Downloads</Text>
-            <Ionicons name="checkmark-circle" size={20} color="black" style={styles.checkmark} />
+            <Ionicons
+              name="checkmark-circle"
+              size={20}
+              color="black"
+              style={styles.checkmark}
+            />
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.menuItem}>
-            <MaterialCommunityIcons name="movie-outline" size={24} color="black" />
+            <MaterialCommunityIcons
+              name="movie-outline"
+              size={24}
+              color="black"
+            />
             <Text style={styles.menuItemText}>Movies & TV</Text>
           </TouchableOpacity>
 
@@ -120,11 +158,8 @@ const profile = () => {
           <Ionicons name="play-circle-outline" size={24} color="black" />
           <Text style={styles.menuItemText}>Get YouTube Premium</Text>
         </TouchableOpacity>
-
-
       </ScrollView>
     </View>
-
   );
 };
 
@@ -135,7 +170,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
   },
-  profileInfo:{
+  profileInfo: {
     paddingVertical: 20,
     paddingHorizontal: 15,
   },
@@ -147,64 +182,64 @@ const styles = StyleSheet.create({
   },
   userName: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   userEmail: {
     fontSize: 12,
-    color: 'gray',
-  },  
+    color: "gray",
+  },
   actionButtonRow: {
     marginTop: 15,
     paddingHorizontal: 10,
-    flexDirection: 'row',
-    borderColor: '#ddd',
+    flexDirection: "row",
+    borderColor: "#ddd",
   },
   button: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginRight: 10,
     padding: 5,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: "#f0f0f0",
     borderRadius: 15,
   },
   actionButtonText: {
     marginLeft: 5,
     marginRight: 5,
     fontSize: 12,
-  },  
+  },
   historySection: {
     marginTop: 5,
   },
-  sectionHeader:{
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  sectionHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     marginTop: 10,
   },
   sectionHeaderButton: {
     padding: 5,
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: "#ddd",
     borderRadius: 15,
     marginRight: 15,
     marginTop: 10,
   },
-  sectionHeaderText:{
+  sectionHeaderText: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     paddingHorizontal: 15,
     marginBottom: 5,
     marginTop: 15,
   },
   vidHistoryRow: {
     paddingHorizontal: 10,
-    flexDirection: 'row',
+    flexDirection: "row",
   },
-   menuSection: {
+  menuSection: {
     marginTop: 20,
     paddingHorizontal: 15,
   },
-   menuItem: {
+  menuItem: {
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: 16,
