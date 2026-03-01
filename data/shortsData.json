@@ -1,0 +1,82 @@
+{
+    "shorts": [
+        {
+            "id": "s1",
+            "channelId": "c1",
+            "title": "React Hooks in 60 Seconds",
+            "description": "A quick overview of React Hooks for beginners.",
+            "likes": "1.3M",
+            "comments": "25K",
+            "remixCount": "500K",
+            "thumbnail": "https://picsum.photos/seed/short1/400/700"
+        },
+        {
+            "id": "s2",
+            "channelId": "c2",
+            "title": "JavaScript ES2024 Features",
+            "description": "Explore the latest JavaScript features in ES2024.",
+            "likes": "900K",
+            "comments": "15K",
+            "remixCount": "300K",
+            "thumbnail": "https://picsum.photos/seed/short2/400/700"
+        },
+        {
+            "id": "s3",
+            "channelId": "c3",
+            "title": "Design Tips for Beginners",
+            "description": "Learn essential design tips for beginners.",
+            "likes": "750K",
+            "comments": "10K",
+            "remixCount": "200K",
+            "thumbnail": "https://picsum.photos/seed/short3/400/700"
+        },
+        {
+            "id": "s4",
+            "channelId": "c4",
+            "title": "Top Travel Hacks for 2024",
+            "description": "Discover the best travel hacks for 2024.",
+            "likes": "1M",
+            "comments": "20K",
+            "remixCount": "400K",
+            "thumbnail": "https://picsum.photos/seed/short4/400/700"
+        },
+        {
+            "id": "s5",
+            "channelId": "c1",
+            "title": "State Management in 30 Seconds",
+            "description": "Learn how to manage state in React applications.",
+            "likes": "850K",
+            "comments": "18K",
+            "remixCount": "350K",
+            "thumbnail": "https://picsum.photos/seed/short5/400/700"
+        },
+        {
+            "id": "s6",
+            "channelId": "c2",
+            "title": "CSS Tricks for 2024",
+            "description": "Discover the latest CSS tricks for 2024.",
+            "likes": "700K",
+            "comments": "12K",
+            "remixCount": "250K",
+            "thumbnail": "https://picsum.photos/seed/short6/400/700"
+        },
+        {
+            "id": "s7",
+            "channelId": "c3",
+            "title": "UI/UX Trends to Watch",
+            "likes": "650K",
+            "comments": "8K",
+            "remixCount": "150K",
+            "thumbnail": "https://picsum.photos/seed/short7/400/700"
+        },
+        {
+            "id": "s8",
+            "channelId": "c4",
+            "title": "Best Travel Apps in 2024",
+            "likes": "900K",
+            "comments": "22K",
+            "remixCount": "450K",
+            "thumbnail": "https://picsum.photos/seed/short8/400/700"
+        }
+    ]
+}
